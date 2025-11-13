@@ -2,7 +2,7 @@ name: Deploy Vue App to GitHub Pages
 
 on:
   push:
-    branches: [ prod ]
+    branches: [ master ]
 
 permissions:
   contents: read
