@@ -2,8 +2,11 @@
   <div class="audio-player">
     <div class="player-controls">
       <button class="play-button" @click="togglePlay" aria-label="播放/暂停">
-        <span v-if="!isPlaying" class="play-icon">▶</span>
-        <span v-else class="pause-icon">❚❚</span>
+        <div v-if="!isPlaying" class="play-icon"></div>
+        <div v-else class="pause-icon">
+          <div class="pause-bar"></div>
+          <div class="pause-bar"></div>
+        </div>
       </button>
       <div class="progress-container" @click="seek">
         <div class="progress-bar" :style="{ width: progress + '%' }"></div>
@@ -176,13 +179,26 @@ onUnmounted(() => {
     transform: scale(0.95);
   }
 
-  .play-icon, .pause-icon {
-    font-size: 16px;
-    line-height: 1;
+  .play-icon {
+    width: 0;
+    height: 0;
+    border-top: 8px solid transparent;
+    border-left: 14px solid white;
+    border-bottom: 8px solid transparent;
+    margin-left: 3px;
   }
 
-  .play-icon {
-    margin-left: 2px;
+  .pause-icon {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .pause-bar {
+    width: 4px;
+    height: 14px;
+    background-color: white;
   }
 }
 
