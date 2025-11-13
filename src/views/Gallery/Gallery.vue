@@ -3,7 +3,7 @@
     <div class="card">
       <div class="header">
         <div class="title">图片画廊</div>
-        <div class="subtitle">轮播展示美好瞬间</div>
+        <div class="subtitle">一些小惊喜，希望你会喜欢</div>
       </div>
 
       <div class="carousel-wrapper">
@@ -27,26 +27,26 @@ import Carousel from '../../components/Carousel.vue'
 const carouselItems = ref([
   {
     image: new URL('../../assets/Futaba_Anzu.jpg', import.meta.url).href,
-    title: '',
-    subtitle: '双叶杏',
+    title: '双叶杏',
+    subtitle: '',
     cropArea: { x: 50, y: 50 } // 居中显示
   },
   {
     image: new URL('../../assets/Futaba_Anzu1.jpg', import.meta.url).href,
-    title: '',
-    subtitle: '双叶杏',
+    title: '双叶杏',
+    subtitle: '',
     cropArea: { x: 50, y: 40 } // 稍微偏上显示
   },
   {
     image: new URL('../../assets/Double_Flowered_Jasmine.jpg', import.meta.url).href,
-    title: '',
-    subtitle: '茉莉花',
+    title: '重瓣茉莉',
+    subtitle: '',
     cropArea: { x: 50, y: 60 } // 稍微偏下显示
   },
   {
     image: new URL('../../assets/Tonari_no_Totoro.jpg', import.meta.url).href,
-    title: '',
-    subtitle: '龙猫',
+    title: '龙猫',
+    subtitle: '',
     cropArea: { x: 50, y: 50 } // 居中显示
   }
 ])
@@ -100,12 +100,17 @@ const carouselItems = ref([
 }
 
 .subtitle {
-  font-size: 16px;
-  color: @color-text-light;
+  font-size: 18px;
+  color: @color-accent-secondary;
   text-align: center;
-  margin-top: @spacing-sm;
+  margin-top: @spacing-md;
   margin-bottom: @spacing-lg;
   letter-spacing: 1px;
+  font-weight: 500;
+  opacity: 0;
+  transform: translateY(-10px);
+  animation: fadeInUp 1s ease forwards 0.5s;
+  text-shadow: 0 1px 2px rgba(252, 165, 165, 0.2);
 }
 
 .carousel-wrapper {
@@ -150,6 +155,18 @@ const carouselItems = ref([
   to {
     opacity: 1;
     transform: scale(1);
+  }
+}
+
+// 淡入上移动画
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
