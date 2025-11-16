@@ -7,7 +7,7 @@
 
 			<div class="content-section">
 				<h3>专属音乐</h3>
-				<AudioPlayer src="/qin_chuan_summer.mp3" />
+				<AudioPlayer :src="getEnv() === 'production' ? '/birthday-present/qin_chuan_summer.mp3' : '/qin_chuan_summer.mp3'" />
 
 				<h3>情绪关怀指南</h3>
 				<ul class="tips-list">
@@ -40,6 +40,7 @@
 <script setup lang="ts">
 import AudioPlayer from '@/components/AudioPlayer.vue'
 import CustomAlert from '@/components/CustomAlert.vue'
+import { getEnv } from '@/utils/utils'
 import { ref } from 'vue'
 
 const showAlert = ref(false)
