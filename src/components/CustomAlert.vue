@@ -196,9 +196,9 @@ onUnmounted(() => {
 
 .alert-message {
   padding: 0 @spacing-md @spacing-lg;
-  font-size: 15px;
+  font-size: 14px;
   color: @color-text-light;
-  line-height: 1.5;
+  line-height: 1.8;
   white-space: pre-line;
   text-align: center;
 }
