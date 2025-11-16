@@ -32,15 +32,9 @@
 			</div>
 		</div>
 	</div>
-	
-	<CustomAlert
-		v-model:visible="showAlert"
-		type="success"
-		title="天天开心"
-		message="少一点内耗，身体健康是最重要的财富，要好好照顾自己。"
-		icon="💖"
-		closeOnOverlayClick
-	/>
+
+	<CustomAlert v-model:visible="showAlert" type="success" title="天天开心" message="少一点内耗，身体健康是最重要的财富，要好好照顾自己。" icon="💖"
+		closeOnOverlayClick />
 </template>
 
 <script setup lang="ts">
@@ -122,10 +116,21 @@ h3 {
 		animation: fadeInUp 0.6s ease forwards;
 	}
 
-	li:nth-child(1) { animation-delay: 0.2s; }
-	li:nth-child(2) { animation-delay: 0.4s; }
-	li:nth-child(3) { animation-delay: 0.6s; }
-	li:nth-child(4) { animation-delay: 0.8s; }
+	li:nth-child(1) {
+		animation-delay: 0.2s;
+	}
+
+	li:nth-child(2) {
+		animation-delay: 0.4s;
+	}
+
+	li:nth-child(3) {
+		animation-delay: 0.6s;
+	}
+
+	li:nth-child(4) {
+		animation-delay: 0.8s;
+	}
 
 	.tip-emoji {
 		margin-right: @spacing-sm;
@@ -201,7 +206,7 @@ h3 {
 	}
 
 
-h3 {
+	h3 {
 		font-size: 16px;
 	}
 

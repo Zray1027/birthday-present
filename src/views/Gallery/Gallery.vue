@@ -7,14 +7,9 @@
       </div>
 
       <div class="carousel-wrapper">
-        <Carousel 
-          :items="carouselItems" 
-          :interval="4000"
-          aspect-ratio="9:16"
-          :autoplay="true"
-        />
+        <Carousel :items="carouselItems" :interval="4000" aspect-ratio="9:16" :autoplay="true" />
       </div>
-      
+
       <div class="decoration"></div>
     </div>
   </div>
@@ -115,7 +110,8 @@ const carouselItems = ref([
 
 .carousel-wrapper {
   width: 100%;
-  max-width: 400px; /* 限制轮播图最大宽度，保持9:16比例的美观性 */
+  max-width: 400px;
+  /* 限制轮播图最大宽度，保持9:16比例的美观性 */
   margin: 0 auto;
   opacity: 0;
   transform: scale(0.9);
@@ -140,6 +136,7 @@ const carouselItems = ref([
     opacity: 0;
     transform: translateY(-20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -152,6 +149,7 @@ const carouselItems = ref([
     opacity: 0;
     transform: scale(0.9);
   }
+
   to {
     opacity: 1;
     transform: scale(1);
@@ -164,6 +162,7 @@ const carouselItems = ref([
     opacity: 0;
     transform: translateY(-10px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -185,6 +184,4 @@ const carouselItems = ref([
     height: 250px; // 小屏幕上调整轮播图高度
   }
 }
-
-
 </style>

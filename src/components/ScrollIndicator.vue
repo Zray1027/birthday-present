@@ -1,9 +1,5 @@
 <template>
-  <div 
-    class="scroll-indicator" 
-    @click="handleScroll"
-    :data-direction="showUp ? 'up' : 'down'"
-  >
+  <div class="scroll-indicator" @click="handleScroll" :data-direction="showUp ? 'up' : 'down'">
     {{ showUp ? '↑' : '↓' }}
   </div>
 </template>
@@ -70,16 +66,16 @@ const handleScroll = () => {
   cursor: pointer;
   z-index: 10;
   -webkit-tap-highlight-color: transparent;
-  
+
   &:active {
     opacity: 0.8;
     transform: translateX(-50%) scale(0.95);
   }
-  
+
   &[data-direction="up"] {
     animation: bounce-up 2s infinite;
   }
-  
+
   // 悬停效果
   &:hover {
     background: rgba(255, 255, 255, 0.9);
@@ -87,29 +83,38 @@ const handleScroll = () => {
 }
 
 @keyframes bounce {
-  0%, 100% { 
-    transform: translateX(-50%) translateY(0); 
+
+  0%,
+  100% {
+    transform: translateX(-50%) translateY(0);
   }
-  50% { 
-    transform: translateX(-50%) translateY(-8px); 
+
+  50% {
+    transform: translateX(-50%) translateY(-8px);
   }
 }
 
 @keyframes bounce-up {
-  0%, 100% { 
-    transform: translateX(-50%) translateY(0); 
+
+  0%,
+  100% {
+    transform: translateX(-50%) translateY(0);
   }
-  50% { 
-    transform: translateX(-50%) translateY(8px); 
+
+  50% {
+    transform: translateX(-50%) translateY(8px);
   }
 }
 
 @keyframes bounce-up {
-  0%, 100% { 
-    transform: translateX(-50%) translateY(0); 
+
+  0%,
+  100% {
+    transform: translateX(-50%) translateY(0);
   }
-  50% { 
-    transform: translateX(-50%) translateY(8px); 
+
+  50% {
+    transform: translateX(-50%) translateY(8px);
   }
 }
 </style>

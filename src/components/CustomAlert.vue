@@ -9,13 +9,8 @@
           </div>
           <div v-if="message" class="alert-message">{{ message }}</div>
           <div class="alert-actions">
-            <button 
-              v-for="(button, index) in buttons" 
-              :key="index"
-              class="alert-button"
-              :class="{ 'primary-button': button.isPrimary }"
-              @click="handleButtonClick(button, index)"
-            >
+            <button v-for="(button, index) in buttons" :key="index" class="alert-button"
+              :class="{ 'primary-button': button.isPrimary }" @click="handleButtonClick(button, index)">
               {{ button.text }}
             </button>
           </div>
@@ -161,15 +156,15 @@ onUnmounted(() => {
   backdrop-filter: blur(@ios-blur-strength);
   border: 1px solid rgba(255, 255, 255, 0.2);
   animation: alert-in 0.3s ease-out;
-  
+
   &.success {
     border-color: @color-success;
   }
-  
+
   &.warning {
     border-color: @color-warning;
   }
-  
+
   &.error {
     border-color: @color-error;
   }
@@ -193,11 +188,11 @@ onUnmounted(() => {
   &.success .alert-icon {
     color: @color-success;
   }
-  
+
   &.warning .alert-icon {
     color: @color-warning;
   }
-  
+
   &.error .alert-icon {
     color: @color-error;
   }
@@ -276,12 +271,12 @@ onUnmounted(() => {
 
 .alert-enter-active .alert-container {
   transition: transform @transition-normal cubic-bezier(0.4, 0, 0.2, 1),
-              opacity @transition-normal cubic-bezier(0.4, 0, 0.2, 1);
+    opacity @transition-normal cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .alert-leave-active .alert-container {
   transition: transform @transition-fast cubic-bezier(0.4, 0, 1, 1),
-              opacity @transition-fast cubic-bezier(0.4, 0, 1, 1);
+    opacity @transition-fast cubic-bezier(0.4, 0, 1, 1);
 }
 
 .alert-enter-from .alert-container {
@@ -299,13 +294,16 @@ onUnmounted(() => {
     transform: scale(0.9) translateY(-20px);
     opacity: 0;
   }
+
   50% {
     transform: scale(1.02) translateY(-10px);
     opacity: 0.9;
   }
+
   70% {
     transform: scale(0.98) translateY(-5px);
   }
+
   100% {
     transform: scale(1) translateY(0);
     opacity: 1;
@@ -327,32 +325,32 @@ onUnmounted(() => {
     margin: @spacing-sm;
     max-width: 300px;
   }
-  
+
   .alert-header {
     padding: @spacing-md @spacing-sm @spacing-xs;
     gap: @spacing-xs;
   }
-  
+
   .alert-icon {
     font-size: 2rem;
   }
-  
+
   .alert-title {
     font-size: 17px;
   }
-  
+
   .alert-message {
     font-size: 16px;
     padding: 0 @spacing-sm @spacing-md;
     line-height: 1.4;
   }
-  
+
   .alert-button {
     font-size: 15px;
     min-height: 40px;
     padding: @spacing-xs @spacing-sm;
   }
-  
+
   .alert-actions {
     padding: @spacing-xs;
   }
@@ -362,15 +360,15 @@ onUnmounted(() => {
   .alert-container {
     max-width: 360px;
   }
-  
+
   .alert-icon {
     font-size: 2.8rem;
   }
-  
+
   .alert-title {
     font-size: 20px;
   }
-  
+
   .alert-message {
     font-size: 16px;
   }
@@ -388,11 +386,11 @@ onUnmounted(() => {
   &.success {
     background: linear-gradient(145deg, rgba(255, 255, 255, 0.98), rgba(248, 252, 248, 0.98));
   }
-  
+
   &.warning {
     background: linear-gradient(145deg, rgba(255, 255, 255, 0.98), rgba(255, 252, 248, 0.98));
   }
-  
+
   &.error {
     background: linear-gradient(145deg, rgba(255, 255, 255, 0.98), rgba(255, 248, 248, 0.98));
   }

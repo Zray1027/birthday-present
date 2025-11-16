@@ -1,62 +1,34 @@
 <template>
-  <div 
-    class="carousel-container" 
-    :class="{ 'ratio-9-16': aspectRatio === '9:16' }"
-    @mouseenter="handleMouseEnter"
-    @mouseleave="handleMouseLeave"
-  >
-    <div 
-      class="carousel-wrapper" 
-      :style="{
-        transform: `translateX(-${displayIndex * 100}%)`,
-        transition: isTransitioning ? 'transform 0.5s ease-in-out' : 'none'
-      }"
-    >
+  <div class="carousel-container" :class="{ 'ratio-9-16': aspectRatio === '9:16' }" @mouseenter="handleMouseEnter"
+    @mouseleave="handleMouseLeave">
+    <div class="carousel-wrapper" :style="{
+      transform: `translateX(-${displayIndex * 100}%)`,
+      transition: isTransitioning ? 'transform 0.5s ease-in-out' : 'none'
+    }">
       <div v-if="items.length > 0" class="carousel-slide">
         <div class="carousel-image-container" :style="getImageContainerStyle()">
-          <img 
-            :src="items[items.length - 1].image" 
-            :alt="items[items.length - 1].title" 
-            class="carousel-image"
-            :style="getImageStyle(items[items.length - 1])"
-          />
+          <img :src="items[items.length - 1].image" :alt="items[items.length - 1].title" class="carousel-image"
+            :style="getImageStyle(items[items.length - 1])" />
         </div>
         <div class="carousel-caption">
           <h3>{{ items[items.length - 1].title }}</h3>
           <p v-if="items[items.length - 1].subtitle">{{ items[items.length - 1].subtitle }}</p>
         </div>
       </div>
-      
-      <div 
-        v-for="(item, index) in items" 
-        :key="index" 
-        class="carousel-slide"
-      >
-        <div 
-          class="carousel-image-container"
-          :style="getImageContainerStyle()"
-        >
-          <img 
-            :src="item.image" 
-            :alt="item.title" 
-            class="carousel-image"
-            :style="getImageStyle(item)"
-          />
+
+      <div v-for="(item, index) in items" :key="index" class="carousel-slide">
+        <div class="carousel-image-container" :style="getImageContainerStyle()">
+          <img :src="item.image" :alt="item.title" class="carousel-image" :style="getImageStyle(item)" />
         </div>
         <div class="carousel-caption">
           <h3>{{ item.title }}</h3>
           <p v-if="item.subtitle">{{ item.subtitle }}</p>
         </div>
       </div>
-      
+
       <div v-if="items.length > 0" class="carousel-slide">
         <div class="carousel-image-container" :style="getImageContainerStyle()">
-          <img 
-            :src="items[0].image" 
-            :alt="items[0].title" 
-            class="carousel-image"
-            :style="getImageStyle(items[0])"
-          />
+          <img :src="items[0].image" :alt="items[0].title" class="carousel-image" :style="getImageStyle(items[0])" />
         </div>
         <div class="carousel-caption">
           <h3>{{ items[0].title }}</h3>
@@ -64,18 +36,13 @@
         </div>
       </div>
     </div>
-    
+
     <button class="carousel-nav prev" @click="prevSlide">&lt;</button>
     <button class="carousel-nav next" @click="nextSlide">&gt;</button>
-    
+
     <div class="carousel-indicators">
-      <button 
-        v-for="(_, index) in items" 
-        :key="index" 
-        class="indicator" 
-        :class="{ active: index === currentIndex }"
-        @click="goToSlide(index)"
-      ></button>
+      <button v-for="(_, index) in items" :key="index" class="indicator" :class="{ active: index === currentIndex }"
+        @click="goToSlide(index)"></button>
     </div>
   </div>
 </template>
@@ -111,7 +78,7 @@ const getImageContainerStyle = () => {
     overflow: 'hidden',
     position: 'relative'
   }
-  
+
   return style
 }
 
@@ -122,13 +89,13 @@ const getImageStyle = (item: CarouselItem) => {
     objectFit: 'cover',
     objectPosition: 'center'
   }
-  
+
   if (item.cropArea) {
     const x = item.cropArea.x || 50
     const y = item.cropArea.y || 50
     style.objectPosition = `${x}% ${y}%`
   }
-  
+
   return style
 }
 
@@ -139,10 +106,10 @@ let timer: number | null = null
 
 const nextSlide = () => {
   if (!props.items.length) return
-  
+
   isTransitioning.value = true
   displayIndex.value++
-  
+
   if (displayIndex.value === props.items.length + 1) {
     setTimeout(() => {
       isTransitioning.value = false
@@ -156,10 +123,10 @@ const nextSlide = () => {
 
 const prevSlide = () => {
   if (!props.items.length) return
-  
+
   isTransitioning.value = true
   displayIndex.value--
-  
+
   if (displayIndex.value === 0) {
     setTimeout(() => {
       isTransitioning.value = false
@@ -173,7 +140,7 @@ const prevSlide = () => {
 
 const goToSlide = (index: number) => {
   if (!props.items.length) return
-  
+
   isTransitioning.value = true
   currentIndex.value = index
   displayIndex.value = index + 1
@@ -222,11 +189,11 @@ onUnmounted(() => {
   overflow: hidden;
   border-radius: @ios-corner-radius-lg;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  
+
   &.ratio-9-16 {
     width: 100%;
     aspect-ratio: 9/16;
-    
+
     @media (max-width: 768px) {
       max-height: 80vh;
       width: auto;
@@ -300,6 +267,7 @@ onUnmounted(() => {
   display: flex;
   align-items: center;
   justify-content: center;
+
   &:hover {
     background: rgba(255, 255, 255, 0.5);
   }
@@ -331,6 +299,7 @@ onUnmounted(() => {
   background: rgba(255, 255, 255, 0.5);
   cursor: pointer;
   transition: background 0.3s;
+
   &.active {
     background: white;
     transform: scale(1.2);

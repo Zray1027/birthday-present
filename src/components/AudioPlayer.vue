@@ -14,14 +14,8 @@
       </div>
       <div class="time-display">{{ currentTimeFormatted }}</div>
     </div>
-    <audio 
-      ref="audioRef" 
-      :src="src" 
-      @timeupdate="updateProgress" 
-      @ended="handleEnded"
-      loop
-      class="hidden-audio"
-    ></audio>
+    <audio ref="audioRef" :src="src" @timeupdate="updateProgress" @ended="handleEnded" loop
+      class="hidden-audio"></audio>
   </div>
 </template>
 
@@ -63,7 +57,7 @@ const formatTime = (seconds: number): string => {
 
 const togglePlay = () => {
   if (!audioRef.value) return
-  
+
   if (isPlaying.value) {
     audioRef.value.pause()
     emit('pause')
@@ -77,7 +71,7 @@ const togglePlay = () => {
 
 const updateProgress = () => {
   if (!audioRef.value) return
-  
+
   currentTime.value = audioRef.value.currentTime
   duration.value = audioRef.value.duration || 0
   progress.value = (currentTime.value / duration.value) * 100
@@ -87,13 +81,13 @@ const updateProgress = () => {
 
 const seek = (event: MouseEvent) => {
   if (!audioRef.value || !duration.value) return
-  
+
   const progressElement = event.currentTarget as HTMLElement
   const rect = progressElement.getBoundingClientRect()
   const clickX = event.clientX - rect.left
   const percentage = clickX / rect.width
   const newTime = percentage * duration.value
-  
+
   audioRef.value.currentTime = newTime
   updateProgress()
 }
@@ -316,6 +310,7 @@ onUnmounted(() => {
     opacity: 0;
     transform: translateY(10px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
