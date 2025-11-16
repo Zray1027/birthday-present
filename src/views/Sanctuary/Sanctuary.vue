@@ -7,7 +7,8 @@
 
 			<div class="content-section">
 				<h3>专属音乐</h3>
-				<AudioPlayer :src="getEnv() === 'production' ? '/birthday-present/qin_chuan_summer.mp3' : '/qin_chuan_summer.mp3'" />
+				<AudioPlayer
+					:src="getEnv() === 'production' ? '/birthday-present/qin_chuan_summer.mp3' : '/qin_chuan_summer.mp3'" />
 
 				<h3>情绪关怀指南</h3>
 				<ul class="tips-list">
@@ -20,8 +21,8 @@
 						<span class="tip-text">翻开那本买了很久的书，给自己一个安静的下午。</span>
 					</li>
 					<li>
-						<span class="tip-emoji">🎨</span>
-						<span class="tip-text">画画时不用担心完美，享受笔触流动的感觉。</span>
+						<span class="tip-emoji">🧸</span>
+						<span class="tip-text">抱抱玩偶或者枕头，给自己一个温暖的拥抱。</span>
 					</li>
 				</ul>
 			</div>
