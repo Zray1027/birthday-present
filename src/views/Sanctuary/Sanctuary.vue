@@ -7,7 +7,7 @@
 
 			<div class="content-section">
 				<h3>专属音乐</h3>
-				<AudioPlayer src="/src/assets/qin_chuan_summer.mp3" />
+				<AudioPlayer src="/qin_chuan_summer.mp3" />
 
 				<h3>情绪关怀指南</h3>
 				<ul class="tips-list">

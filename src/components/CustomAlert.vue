@@ -156,18 +156,6 @@ onUnmounted(() => {
   backdrop-filter: blur(@ios-blur-strength);
   border: 1px solid rgba(255, 255, 255, 0.2);
   animation: alert-in 0.3s ease-out;
-
-  &.success {
-    border-color: @color-success;
-  }
-
-  &.warning {
-    border-color: @color-warning;
-  }
-
-  &.error {
-    border-color: @color-error;
-  }
 }
 
 .alert-header {
