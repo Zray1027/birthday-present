@@ -7,7 +7,7 @@
 
 			<div class="content-section">
 				<h3>专属音乐</h3>
-				<AudioPlayer src="/src/assets/audio/calming-music.mp3" />
+				<AudioPlayer src="/src/assets/qin_chuan_summer.mp3" />
 
 				<h3>情绪关怀指南</h3>
 				<ul class="tips-list">
@@ -36,8 +36,8 @@
 	<CustomAlert
 		v-model:visible="showAlert"
 		type="success"
-		title="最真挚的祝福"
-		message="愿你每天都能保持好心情，身体健康是最重要的财富，记得好好照顾自己。"
+		title="天天开心"
+		message="少一点内耗，身体健康是最重要的财富，要好好照顾自己。"
 		icon="💖"
 		closeOnOverlayClick
 	/>
