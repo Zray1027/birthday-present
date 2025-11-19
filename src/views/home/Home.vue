@@ -1,19 +1,19 @@
 <template>
-	<Home />
-	<Sanctuary />
-	<Improvement />
-	<Habit />
-	<EasterEgg />
-	<ScrollIndicator />
+  <Home />
+  <Sanctuary />
+  <Improvement />
+  <Habit />
+  <EasterEgg />
+  <ScrollIndicator />
 </template>
 
 <script setup lang="ts">
 import ScrollIndicator from '@/components/ScrollIndicator.vue'
-import Home from './components/Home/Home.vue'
-import Sanctuary from './components/Sanctuary/Sanctuary.vue'
-import Improvement from './components/Improvement/Improvement.vue'
-import Habit from './components/Habit/Habit.vue'
-import EasterEgg from './components/EasterEgg/EasterEgg.vue'
+import Home from './components/home/Home.vue'
+import Sanctuary from './components/sanctuary/Sanctuary.vue'
+import Improvement from './components/improvement/Improvement.vue'
+import Habit from './components/habit/Habit.vue'
+import EasterEgg from './components/easterEgg/EasterEgg.vue'
 </script>
 
 <style lang="less" scoped>
