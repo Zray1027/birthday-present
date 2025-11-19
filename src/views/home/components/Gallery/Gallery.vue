@@ -17,29 +17,29 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import Carousel from '../../components/Carousel.vue'
+import Carousel from '@/components/Carousel.vue'
 
 const carouselItems = ref([
   {
-    image: new URL('../../assets/Futaba_Anzu.jpg', import.meta.url).href,
+    image: '/src/assets/Futaba_Anzu.jpg',
     title: '双叶杏',
     subtitle: '',
     cropArea: { x: 50, y: 50 } // 居中显示
   },
   {
-    image: new URL('../../assets/Futaba_Anzu1.jpg', import.meta.url).href,
+    image: '/src/assets/Futaba_Anzu1.jpg',
     title: '双叶杏',
     subtitle: '',
     cropArea: { x: 50, y: 40 } // 稍微偏上显示
   },
   {
-    image: new URL('../../assets/Double_Flowered_Jasmine.jpg', import.meta.url).href,
+    image: '/src/assets/Double_Flowered_Jasmine.jpg',
     title: '重瓣茉莉',
     subtitle: '',
     cropArea: { x: 50, y: 60 } // 稍微偏下显示
   },
   {
-    image: new URL('../../assets/Tonari_no_Totoro.jpg', import.meta.url).href,
+    image: '/src/assets/Tonari_no_Totoro.jpg',
     title: '龙猫',
     subtitle: '',
     cropArea: { x: 50, y: 50 } // 居中显示

@@ -170,6 +170,20 @@ h3 {
 
 	.hint-text {
 		font-size: 1.5rem;
+		animation: bounce 1.5s infinite ease-in-out;
+		display: inline-block;
+	}
+
+	@keyframes bounce {
+
+		0%,
+		100% {
+			transform: translateY(0) scale(1);
+		}
+
+		50% {
+			transform: translateY(-5px) scale(1.1);
+		}
 	}
 }
 

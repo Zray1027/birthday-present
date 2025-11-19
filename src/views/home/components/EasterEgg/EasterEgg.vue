@@ -33,6 +33,9 @@
       </div>
 
       <div class="decoration"></div>
+      <div class="hidden-message" @click="goToLikePage">
+        <span class="hint-text">✨</span>
+      </div>
     </div>
   </div>
 
@@ -46,12 +49,17 @@
 
 <script setup lang="ts">
 import CustomAlert from '@/components/CustomAlert.vue'
+import router from '@/router'
 import { ref } from 'vue'
 
 const showAlert = ref(false)
 
 const showFinalMessage = (): void => {
   showAlert.value = true
+}
+
+const goToLikePage = (): void => {
+  router.push('/like')
 }
 </script>
 
@@ -199,6 +207,37 @@ h3 {
   border-radius: 50%;
   opacity: 0.3;
   z-index: -1;
+}
+
+.hidden-message {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  cursor: pointer;
+  opacity: 0.3;
+  transition: opacity 0.3s ease;
+
+  &:hover {
+    opacity: 0.7;
+  }
+
+  .hint-text {
+    font-size: 1.5rem;
+    animation: bounce 1.5s infinite ease-in-out;
+    display: inline-block;
+  }
+}
+
+@keyframes bounce {
+
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+  }
+
+  50% {
+    transform: translateY(-5px) scale(1.1);
+  }
 }
 
 @keyframes fadeInUp {
