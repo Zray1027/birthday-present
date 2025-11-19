@@ -7,8 +7,7 @@
 
 			<div class="content-section">
 				<h3>专属音乐</h3>
-				<AudioPlayer
-					:src="getEnv() === 'production' ? '/birthday-present/qin_chuan_summer.mp3' : '/qin_chuan_summer.mp3'" />
+				<AudioPlayer :src="`${getEnv() === 'production' ? '/birthday-present' : ''}/music/qin_chuan_summer.mp3`" />
 
 				<h3>情绪关怀指南</h3>
 				<ul class="tips-list">
