@@ -2,20 +2,20 @@ export const knowledges = [
   {
     title: '双叶杏',
     content: '那个总是带着慵懒笑容的女孩，像极了你在疲惫时也需要的小憩时光。',
-    image: '/src/assets/Futaba_Anzu.jpg',
+    image: '/images/Futaba_Anzu.jpg',
     emoji: '🎀'
   },
   {
     title: '重瓣茉莉',
     content: '就像这层层绽放的茉莉，你的内心世界也丰富而细腻，需要静心品味。',
-    image: '/src/assets/Double_Flowered_Jasmine.jpg',
+    image: '/images/Double_Flowered_Jasmine.jpg',
     emoji: '🌸',
     customStyle: 'object-fit: cover; object-position: center bottom;'
   },
   {
     title: '龙猫',
     content: '毛茸茸的温暖形象，总能给人带来莫名的安心感。',
-    image: '/src/assets/Tonari_no_Totoro.jpg',
+    image: '/images/Tonari_no_Totoro.jpg',
     emoji: '🐱'
   },
   {
