@@ -42,8 +42,8 @@ jobs:
           ls -la src/views/ || echo "views 目录不存在"
           echo "=== home 目录内容 ==="
           ls -la src/views/home/ || echo "home 目录不存在"
-          echo "=== like 目录内容 ==="
-          ls -la src/views/like/ || echo "like 目录不存在"
+          echo "=== preference 目录内容 ==="
+          ls -la src/views/preference/ || echo "preference 目录不存在"
           echo "=== 检查类型声明文件 ==="
           find . -name "*.d.ts" | head -10
           
