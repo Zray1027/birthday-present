@@ -32,22 +32,31 @@ jobs:
           node-version: '20'
           cache: 'pnpm'
       
-            - name: 创建缺失的类型声明文件
+      - name: 调试文件结构
         run: |
-          # 检查是否已存在类型声明文件
-          if [ ! -f "src/shims-vue.d.ts" ]; then
-            echo "创建 Vue 类型声明文件"
-            mkdir -p src
-            echo "declare module '*.vue' {" > src/shims-vue.d.ts
-            echo "  import type { DefineComponent } from 'vue'" >> src/shims-vue.d.ts
-            echo "  const component: DefineComponent<{}, {}, any>" >> src/shims-vue.d.ts
-            echo "  export default component" >> src/shims-vue.d.ts
-            echo "}" >> src/shims-vue.d.ts
-          fi
+          echo "=== 检查项目结构 ==="
+          find . -name "*.vue" | grep -i home || echo "未找到 Home.vue 文件"
+          echo "=== src 目录内容 ==="
+          ls -la src/ || echo "src 目录不存在"
+          echo "=== views 目录内容 ==="
+          ls -la src/views/ || echo "views 目录不存在"
+          echo "=== Home 目录内容 ==="
+          ls -la src/views/Home/ || echo "Home 目录不存在"
+          echo "=== 检查类型声明文件 ==="
+          find . -name "*.d.ts" | head -10
           
-          # 调试信息
-          echo "=== 文件结构检查 ==="
-          find . -name "*.vue" | head -10 || echo "未找到 Vue 文件"
+      - name: 创建 Vue 类型声明文件
+        run: |
+          mkdir -p src
+          cat << 'EOF' > src/shims-vue.d.ts
+          declare module '*.vue' {
+            import type { DefineComponent } from 'vue'
+            const component: DefineComponent<{}, {}, any>
+            export default component
+          }
+          EOF
+          echo "类型声明文件已创建"
+          cat src/shims-vue.d.ts
           
       - name: 安装依赖
         run: pnpm install
