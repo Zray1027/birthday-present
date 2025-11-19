@@ -32,23 +32,22 @@ jobs:
           node-version: '20'
           cache: 'pnpm'
       
-      - name: 创建缺失的类型声明文件
+            - name: 创建缺失的类型声明文件
         run: |
-          # 创建 Vue 类型声明
+          # 检查是否已存在类型声明文件
           if [ ! -f "src/shims-vue.d.ts" ]; then
             echo "创建 Vue 类型声明文件"
-            cat > src/shims-vue.d.ts << 'EOF'
-            declare module '*.vue' {
-              import type { DefineComponent } from 'vue'
-              const component: DefineComponent<{}, {}, any>
-              export default component
-            }
-            EOF
+            mkdir -p src
+            echo "declare module '*.vue' {" > src/shims-vue.d.ts
+            echo "  import type { DefineComponent } from 'vue'" >> src/shims-vue.d.ts
+            echo "  const component: DefineComponent<{}, {}, any>" >> src/shims-vue.d.ts
+            echo "  export default component" >> src/shims-vue.d.ts
+            echo "}" >> src/shims-vue.d.ts
           fi
           
-          # 检查文件结构
-          echo "检查文件结构:"
-          find src/views -name "*.vue" 2>/dev/null || echo "未找到 Vue 文件"
+          # 调试信息
+          echo "=== 文件结构检查 ==="
+          find . -name "*.vue" | head -10 || echo "未找到 Vue 文件"
           
       - name: 安装依赖
         run: pnpm install
