@@ -1,6 +1,6 @@
 import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
-import Home from '@/views/Home/Home.vue'
-import Like from '@/views/Like/Like.vue'
+import Home from '../views/Home/Home.vue'
+import Like from '../views/Like/Like.vue'
 
 const routes: Array<RouteRecordRaw> = [
   {
