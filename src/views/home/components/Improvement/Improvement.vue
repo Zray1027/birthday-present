@@ -43,7 +43,7 @@ const sleepTips = ref([
   {
     icon: '🌡️',
     title: '环境调节',
-    description: '保持卧室温度适宜，适当通风'
+    description: '保持卧室温湿度适宜，适当通风'
   },
 ])
 </script>
