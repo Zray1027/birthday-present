@@ -76,7 +76,7 @@ onMounted(() => {
   border-radius: 16px;
   padding: 20px 20px;
   box-sizing: border-box;
-  width: 350px;
+  width: 340px;
   margin: 9px auto 10px;
   text-align: center;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
@@ -104,27 +104,30 @@ onMounted(() => {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     padding: 0 10px;
     box-sizing: border-box;
+    width: 100%;
 
     .stat-item {
       display: flex;
       flex-direction: column;
       align-items: center;
+      flex: 1;
 
       .stat-number {
-        font-size: 30px;
+        font-size: 28px;
         font-weight: bold;
         color: @color-accent-secondary;
         line-height: 1;
         display: flex;
         align-items: center;
+        white-space: nowrap;
 
         >span {
-          font-size: 22px;
+          font-size: 20px;
           color: #7f8c8d;
-          margin: 0 5px;
+          margin: 0 3px;
         }
       }
 
@@ -132,6 +135,8 @@ onMounted(() => {
         font-size: 14px;
         color: #95a5a6;
         margin-top: 5px;
+        text-align: center;
+        white-space: nowrap;
       }
     }
 
@@ -139,7 +144,7 @@ onMounted(() => {
       width: 2px;
       height: 60px;
       background: #ecf0f1;
-      margin: 0 0.8rem;
+      margin: 0 0.5rem;
     }
   }
 }
